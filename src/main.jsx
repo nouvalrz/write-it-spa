@@ -1,11 +1,11 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/reset.css';
 import './styles/style.css';
-import App from './pages/App';
+import { BrowserRouter } from 'react-router-dom';
+import NoteApp from './components/NoteApp';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  <BrowserRouter>
+    <NoteApp />
+  </BrowserRouter>
 );

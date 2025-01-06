@@ -77,7 +77,7 @@ class AppNoteForm extends React.Component {
           <TextArea
             onChange={this.onBodyChangeHandler}
             label="Body"
-            rows={5}
+            rows={10}
             className="app-note-form__input"
             value={this.state.body}
           />

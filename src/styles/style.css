@@ -14,6 +14,7 @@ body {
 div#root {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -30,6 +31,9 @@ main {
   position: absolute;
   top: -2rem;
   z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
 }
 
 .header {
@@ -264,11 +268,67 @@ main {
   position: absolute;
   bottom: 0;
   z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
 }
 
 .body-circle-gradient {
   position: absolute;
-  top: -10rem;
+  top: 0;
   z-index: -1;
   width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 500px;
+  padding-inline: 1.5rem;
+  padding-block: 0.5rem;
+  border: 1.5px solid #8b4ba2;
+  gap: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(143, 44, 161, 1) 0%,
+    rgba(98, 36, 131, 1) 100%
+  );
+}
+
+.floating-button__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: 0.2s;
+  padding-inline: 1.5rem;
+  border-radius: 500px;
+}
+
+.floating-button__item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.detail-container {
+  padding: 1rem;
+  width: 100%;
+  max-width: 60rem;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.not-found i {
+  font-size: 2rem;
 }
