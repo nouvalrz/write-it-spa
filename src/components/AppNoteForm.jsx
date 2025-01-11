@@ -2,6 +2,8 @@ import React from 'react';
 import Button from './base/Button';
 import TextArea from './forms/TextArea';
 import TextInput from './forms/TextInput';
+import autoBind from 'auto-bind';
+import PropTypes from 'prop-types';
 
 class AppNoteForm extends React.Component {
   constructor(props) {
@@ -12,9 +14,7 @@ class AppNoteForm extends React.Component {
       body: '',
     };
 
-    this.onTitleChangeHandler = this.onTitleChangeHandler.bind(this);
-    this.onBodyChangeHandler = this.onBodyChangeHandler.bind(this);
-    this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
+    autoBind(this);
   }
 
   onTitleChangeHandler(event) {
@@ -91,5 +91,9 @@ class AppNoteForm extends React.Component {
     );
   }
 }
+
+AppNoteForm.propTypes = {
+  onAddNote: PropTypes.func.isRequired,
+};
 
 export default AppNoteForm;

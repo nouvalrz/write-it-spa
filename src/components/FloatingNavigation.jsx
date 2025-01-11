@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function FloatingNavigation({ items }) {
   const navigate = useNavigate();
@@ -32,5 +33,9 @@ function FloatingNavigation({ items }) {
     </div>
   );
 }
+
+FloatingNavigation.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default FloatingNavigation;

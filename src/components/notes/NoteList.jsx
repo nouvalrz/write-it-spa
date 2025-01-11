@@ -1,4 +1,5 @@
 import NoteCard from './NoteCard';
+import PropTypes from 'prop-types';
 
 function NoteList({ notes, onDeleteNote, onToggleNoteArchive }) {
   return (
@@ -14,5 +15,11 @@ function NoteList({ notes, onDeleteNote, onToggleNoteArchive }) {
     </div>
   );
 }
+
+NoteList.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onToggleNoteArchive: PropTypes.func.isRequired,
+};
 
 export default NoteList;

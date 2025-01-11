@@ -1,4 +1,5 @@
 import TextInput from './forms/TextInput';
+import PropTypes from 'prop-types';
 
 function AppSearchForm({ onChange, activeKeyword }) {
   return (
@@ -13,5 +14,10 @@ function AppSearchForm({ onChange, activeKeyword }) {
     </div>
   );
 }
+
+AppSearchForm.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  activeKeyword: PropTypes.string.isRequired,
+};
 
 export default AppSearchForm;

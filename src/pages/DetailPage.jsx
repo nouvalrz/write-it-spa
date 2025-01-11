@@ -4,6 +4,7 @@ import React from 'react';
 import NoteCard from '../components/notes/NoteCard';
 import autoBind from 'auto-bind';
 import FloatingNavigation from '../components/FloatingNavigation';
+import PropTypes from 'prop-types';
 
 function DetailPageWrapper() {
   const { id } = useParams();
@@ -15,9 +16,20 @@ class DetailPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: getNoteById(props.id),
+      note: null,
     };
     autoBind(this);
+  }
+
+  componentDidMount() {
+    const note = getNoteById(this.props.id);
+    if (!note) {
+      setTimeout(() => {
+        this.props.navigate('/404');
+      }, 1);
+      return;
+    }
+    this.setState({ note });
   }
 
   onDeleteNoteHandler(id) {
@@ -35,6 +47,10 @@ class DetailPage extends React.Component {
   }
 
   render() {
+    if (!this.state.note) {
+      return null;
+    }
+
     return (
       <>
         <div className="detail-container">
@@ -68,5 +84,10 @@ class DetailPage extends React.Component {
     );
   }
 }
+
+DetailPage.propTypes = {
+  id: PropTypes.string.isRequired,
+  navigate: PropTypes.func.isRequired,
+};
 
 export default DetailPageWrapper;

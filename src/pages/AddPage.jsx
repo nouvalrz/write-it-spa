@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import FloatingNavigation from '../components/FloatingNavigation';
 function AddPage() {
   const navigate = useNavigate();
+
   function onAddNoteHandler(note) {
     addNote(note);
     navigate('/');

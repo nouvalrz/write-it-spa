@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { showFormattedDate } from '../../utils';
 import Button from '../base/Button';
+import PropTypes from 'prop-types';
 
 function NoteCard({
   id,
@@ -38,5 +39,15 @@ function NoteCard({
     </div>
   );
 }
+
+NoteCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  onDeleteNote: PropTypes.func,
+  onToggleNoteArchive: PropTypes.func,
+  withButtons: PropTypes.bool,
+};
 
 export default NoteCard;

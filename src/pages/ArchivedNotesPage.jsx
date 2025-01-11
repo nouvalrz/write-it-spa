@@ -7,6 +7,7 @@ import { deleteNote, getNotes, toggleArchiveNote, searchNote } from '../utils';
 import FloatingNavigation from '../components/FloatingNavigation';
 import autoBind from 'auto-bind';
 import { useSearchParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function ArchivedNotesPageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,7 +19,10 @@ function ArchivedNotesPageWrapper() {
   }
 
   return (
-    <ArchivedNotesPage onSearch={changeSearchParams} activeKeyword={keyword} />
+    <ArchivedNotesPage
+      onSearch={changeSearchParams}
+      activeKeyword={keyword ?? ''}
+    />
   );
 }
 
@@ -27,7 +31,7 @@ class ArchivedNotesPage extends React.Component {
     super(props);
 
     this.state = {
-      notes: searchNote(this.props.activeKeyword ?? ''),
+      notes: searchNote(this.props.activeKeyword),
       searchQuery: '',
     };
 
@@ -98,5 +102,10 @@ class ArchivedNotesPage extends React.Component {
     );
   }
 }
+
+ArchivedNotesPage.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+  activeKeyword: PropTypes.string.isRequired,
+};
 
 export default ArchivedNotesPageWrapper;

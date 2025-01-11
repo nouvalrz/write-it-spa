@@ -1,5 +1,6 @@
 import EmptyNoteMessage from './notes/EmptyNoteMessage';
 import NoteList from './notes/NoteList';
+import PropTypes from 'prop-types';
 
 function AppArchiveNoteList({ notes, onDeleteNote, onToggleNoteArchive }) {
   return (
@@ -17,5 +18,11 @@ function AppArchiveNoteList({ notes, onDeleteNote, onToggleNoteArchive }) {
     </div>
   );
 }
+
+AppArchiveNoteList.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDeleteNote: PropTypes.func.isRequired,
+  onToggleNoteArchive: PropTypes.func.isRequired,
+};
 
 export default AppArchiveNoteList;
